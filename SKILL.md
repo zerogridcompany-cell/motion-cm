@@ -80,3 +80,5 @@ const MIN = '"CM4Mincho", serif';
 - 病気が治る・痩せる等の効果、客の声、売上、受賞、推奨は書かん
 - 投稿・公開・広告への入稿はせん（言われた時だけ）
 - 重い書き出しは同時2本まで
+
+🔒2026-10-14 Eugene「字幕とかお前が書き込む系は絶対モーショングラフィックスのスキルで」＝**字幕・テロップ・題名・クレジットは motion-cm（Remotion）で描く**。telop_styles.py／anim_subs_v7.py（PIL）は見本を並べて選ぶ時だけ・本番の焼き込みには使わん。門＝check_wari.py の telop.render:"motion-cm"。
