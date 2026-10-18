@@ -124,6 +124,10 @@ def main():
     gate_file("conte_lint.json", "黄")
     rv = sorted(glob.glob(os.path.join(work, "審査", "*.md")))
     add("緑" if rv else "赤", "動画で見た審査（審査/*.md）", ", ".join(os.path.basename(x) for x in rv) or "無い")
+    if rv:  # 一番新しい審査の点（10点満点）。8点未満は黄＝「未達・何点」と添えて見せる
+        m = re.findall(r"(\d+(?:\.\d+)?)\s*(?:点|/\s*10)", open(rv[-1], encoding="utf-8").read())
+        sc = float(m[0]) if m else None
+        add("緑" if sc is not None and sc >= 8 else "黄", "審査の点（8点以上で合格）", sc if sc is not None else "点が読めん")
 
     red = [x for x in rows if x[0] == "赤"]
     for c, k, v in rows:
