@@ -14,6 +14,7 @@ const root = opt("--root", path.join(os.homedir(), "scratcher-basket/vsl/remotio
 const work = path.resolve(opt("--work", process.cwd()));
 const perSec = +opt("--per-sec", 4);
 fs.mkdirSync(work, { recursive: true });
+process.chdir(root); // ブラウザの控え（.remotion）を Remotion の作業フォルダに置く
 const req = createRequire(path.join(root, "package.json"));
 const { bundle } = await import(pathToFileURL(req.resolve("@remotion/bundler")).href);
 const { renderFrames, selectComposition } = await import(pathToFileURL(req.resolve("@remotion/renderer")).href);
