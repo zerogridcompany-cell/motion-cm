@@ -1,3 +1,5 @@
 .DS_Store
 __pycache__/
 *.bak*
+scripts/.remotion/
+scripts/ocr_lines
